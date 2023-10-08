@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!--setter injection to get datasource object -->
+	<bean id="mysqlDAO" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	
+		<property name="driverClassName" ref="com.mysql.cj.jdbc.Driver" />
+		<property name="url" ref="jdbc:mysql:///school" />
+		<property name="username" ref="root" />
+		<property name="password" ref="Shivani123" />
+	</bean>
+	
+	<!-- constructor injection inside dao layer -->
+	<bean id="customerDao" class="krishna.dao.ICustomerDAOImpl">
+		<constructor-arg name="dataSource" ref="mysqlDAO" />
+	</bean>
+	
+	<!-- constructor injection inside Service layer -->
+	<bean id="customerService" class="krishna.service.CustomerMgntServiceImpl">
+		<constructor-arg name="dao" ref="customerDao" />
+	</bean>
+	
+	<!-- constructor injection inside Controller layer -->
+	<bean id="customerController" class="krishna.controller.mainController">
+		<constructor-arg name="service" ref="customerService" />
+	</bean>
+</beans>
