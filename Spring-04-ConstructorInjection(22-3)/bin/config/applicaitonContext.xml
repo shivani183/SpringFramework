@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="std1" class="comp.Student">
+	<constructor-arg index="0" value="10"/>
+	<constructor-arg index="1" value="shivani"/>
+	<constructor-arg index="3" value="96.2f"/>
+	<constructor-arg index="2" value="rbts"/>
+	</bean>
+	
+	<bean id="std2" class="comp.Student">
+	<constructor-arg name="sno" value="117"/>
+	<constructor-arg name="sname" value="Aviansh"/>
+	<constructor-arg name="avg" value="26.2f"/>
+	<constructor-arg name="saddress" value="mzp"/>
+	</bean>
+	
+	<bean id="std3" class="comp.Student">
+	<constructor-arg type="java.lang.Integer" value="117"/>
+	<constructor-arg type="java.lang.String" value="mzp"/>
+	<constructor-arg type="java.lang.String" value="Aviansh"/>
+	<constructor-arg type="java.lang.Float" value="26.2f"/>
+	</bean>
+	
+	<bean id="std4" class="comp.Student">
+	<constructor-arg type="java.lang.Integer" index="0" value="117"/>
+	<constructor-arg type="java.lang.String" index="2" value="mzp"/>
+	<constructor-arg type="java.lang.String" index="1" value="Aviansh"/>
+	<constructor-arg type="java.lang.Float" index="3" value="26.2f"/>
+	</bean>
+
+</beans>
