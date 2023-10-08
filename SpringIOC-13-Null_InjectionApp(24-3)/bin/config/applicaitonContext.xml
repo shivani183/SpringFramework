@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="pinfo" class="comp.PersonInfo">
+		<constructor-arg name="pid" value="12" />
+		<constructor-arg name="pname" value="abhi" />
+		<constructor-arg name="paddress" value="agra" />
+		<constructor-arg name="doj">
+			<null />
+		</constructor-arg>
+		<constructor-arg name="dob" ref="dobObj" />
+	</bean>
+
+	<bean id="dobObj" class="java.util.Date">
+		<property name="year" value="1998"></property>
+		<property name="month" value="9"></property>
+		<property name="date" value="20"></property>
+	</bean>
+</beans>

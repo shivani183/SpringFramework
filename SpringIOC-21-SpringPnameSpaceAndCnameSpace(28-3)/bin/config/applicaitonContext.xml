@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="dob" class="java.util.Date" p:date="23" p:month="11" p:year="98"/>
+	<bean id="doj" class="java.util.Date"/>
+
+	
+	<bean id="employee" class="commons.Employee"
+	p:eno="10"
+	p:ename="Shiv"
+	p:dob-ref="dob"
+	p:dept-ref="dept"
+	/>
+	
+	<!--<bean id="dept" class="commons.Department"
+	c:dno="2"
+	c:dname="English"
+	c:doj-ref="doj"
+	/>-->
+	<bean id="dept" class="commons.Department"
+	c:dno="2">
+	<constructor-arg name="dname" value="Hindi"/>
+	<constructor-arg name="doj" ref="doj"/>
+	</bean>
+	
+
+</beans>

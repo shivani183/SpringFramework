@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Configuring the DEPENDENT Component -->
+	<bean id="dtdc" class="comp.dtdc" autowire-candidate="false" primary="true" />
+	<bean id="bDart" class="comp.blueDart" autowire-candidate="false" />
+	<bean id="fFlight" class="comp.firstFlight" autowire-candidate="false" />
+
+	<!-- "using constructor"
+	<bean id="flp" class="comp.flipkart"
+	autowire="constructor">
+		<constructor-arg name="discount" value="20f" />
+		-->
+
+	<bean id="flp" class="comp.flipkart" autowire="no">
+		<constructor-arg name="discount" value="20f" />
+		<constructor-arg name="courier" ref="bDart" />
+
+	</bean>
+
+	<!-- "using setter" 
+	<bean id="fpkt" class="in.ineuron.comp.Flipkart"
+	autowire="byType">
+		<property name="discount" value="30" />
+	</bean>
+	-->
+
+</beans>

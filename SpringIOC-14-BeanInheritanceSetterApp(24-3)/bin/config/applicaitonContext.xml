@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="baseCar" class="comp.Car" abstract="true">
+		<property name="model" value="swift"></property>
+		<property name="company" value="suzuki"></property>
+		<property name="type" value="hutchback"></property>
+		<property name="fuelType" value="diesel"></property>
+		<property name="engineCC" value="1200"></property>
+	</bean>
+
+	<bean id="car1" class="comp.Car" parent="baseCar">
+		<property name="regNo" value="gghj76763"></property>
+		<property name="engineNo" value="dsf2222"></property>
+		<property name="color" value="grey"></property>
+		<property name="owner" value="dhoni"></property>
+	</bean>
+
+	<bean id="car2" class="comp.Car" parent="baseCar">
+		<property name="regNo" value="fhgfa65"></property>
+		<property name="engineNo" value="aaa333"></property>
+		<property name="color" value="blue"></property>
+		<property name="owner" value="sachin"></property>
+	</bean>
+</beans>
